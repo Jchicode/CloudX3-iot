@@ -1,6 +1,10 @@
 // 合约相关的配置
 
-type ChainName = "Optimism Goerli Testnet" | "Sepolia" | "opBNB Testnet";
+type ChainName =
+  | "Optimism Goerli Testnet"
+  | "Sepolia"
+  | "opBNB Testnet"
+  | "Filecoin - Calibration testnet";
 
 export type Chain = {
   chainId: string;
@@ -43,6 +47,17 @@ const chains: Chain[] = [
     chainId: "0x1a4",
     chainName: "Optimism Goerli Testnet",
     chainlistUrl: "https://chainlist.org/chain/420",
+    rpcUrls: [
+      "https://endpoints.omniatech.io/v1/op/goerli/public",
+      "https://optimism-goerli.publicnode.com"
+    ],
+    blockExplorerUrls: ["https://optimism-goerli.blockscout.com"],
+    nativeCurrency: {
+      name: "ETH",
+      symbol: "ETH",
+      decimals: 18
+    },
+    iconUrls: ["https://chainlist.org/unknown-logo.png"],
 
     oracle: "0xac463983a9379e175D6117d2F961a8621037931c",
 
@@ -71,14 +86,25 @@ const chains: Chain[] = [
     chainId: "0xaa36a7",
     chainName: "Sepolia",
     chainlistUrl: "https://chainlist.org/chain/11155111",
+    rpcUrls: [
+      "https://eth-sepolia.g.alchemy.com/v2/demo",
+      "https://rpc.sepolia.org"
+    ],
+    blockExplorerUrls: ["https://sepolia.etherscan.io"],
+    nativeCurrency: {
+      name: "ETH",
+      symbol: "ETH",
+      decimals: 18
+    },
+    iconUrls: ["https://chainlist.org/unknown-logo.png"],
 
-    oracle: "0xC1A56c1c85a4D957a513719FdB30eac50a861433",
+    oracle: "0x84f146aD17078D9C278832768B0cd9EA597E0E67",
 
-    podContract: "0xC033615137D482f51718106489035bE6CCDcE0DD",
-    podJobId: "780d3dd1933a4a9d839f4c78d92ab595",
+    podContract: "0xC7F694fbbc168CE02F2ce9cE84d748957F283336",
+    podJobId: "c1efad95d1b34cc9b3e2ee06802a2a6d",
 
-    deploymentContract: "0x70F4C5425bf1eAcd1fcfdaC5BfF5393EF45cA53E",
-    deploymentJobId: "68c1dc5cd63841459ff2395a931f042c",
+    deploymentContract: "0x6Ca351492b3b137aBb94052B847Af891bb067eFe",
+    deploymentJobId: "d61b61a4e6684116be70d6ec6e58b52e",
 
     nodeContract: "0x1Acc504c02768ff00fBcEB331dB5Eda37fAC006E",
     nodeJobId: "aa7198c0190f4cc29d4e4470c08f6391",
@@ -90,10 +116,10 @@ const chains: Chain[] = [
 
     codContract: "0x754e87664F278f2be89b3f496955752f127fBdf8",
 
-    stcMarketContract: "0x6051273DB68F2af68617589f30F8a91f859e5b82",
-    stcMarketTokenContract: "0x8b321Dde4CAe93848f756895fdb34E889A6c831b",
+    stcMarketContract: "0xa05D733aE699a1cd3Eb3443ca932FfB69e1e7fFC",
+    stcMarketTokenContract: "0xe0bf50E501236845580A090c180B218CdAc46204",
 
-    userHubContract: "0xE87a986fDc35170c66C3a2449bC4Aee6350cc1F6"
+    userHubContract: "0x51923dcd6Bb170bd28AD4425A6Dd5cD0456F8e52"
   },
   {
     chainId: "0x15eb",
@@ -130,10 +156,46 @@ const chains: Chain[] = [
     stcMarketTokenContract: "0x5d3c43875589f4881E769f4b46cFf6257dC5Ad1C", //
 
     userHubContract: "0xD436429Cf172a79A5E4D8F672c698A2E98315dc0" //
+  },
+  {
+    chainId: "0x4cb2f",
+    chainName: "Filecoin - Calibration testnet",
+    // chainlistUrl: "https://chainlist.org/chain/314159",
+    nativeCurrency: {
+      name: "tFIL",
+      symbol: "tFIL",
+      decimals: 18
+    },
+    rpcUrls: ["https://filecoin-calibration.chainup.net/rpc/v1"],
+    blockExplorerUrls: ["https://calibration.filscan.io/"],
+    iconUrls: ["https://filecoin.io/images/filecoin-logo.svg"],
+
+    oracle: "0xCe76ab89Cac76d67Bd43Ed901AE6544b03103a63",
+
+    podContract: "0x3aDb761e02a76e9E8C8aBD12B2744f32F15D7166",
+    podJobId: "780d3dd1933a4a9d839f4c78d92ab595",
+
+    deploymentContract: "0xD6540c5eC23f664D3Fee7E2Aa608C6B197FD24ce",
+    deploymentJobId: "68c1dc5cd63841459ff2395a931f042c",
+
+    nodeContract: "0x4a243dFb4EeFffb5a255b3b320681aa39915420B",
+    nodeJobId: "aa7198c0190f4cc29d4e4470c08f6391",
+    nodeOracle: "0x248E10ec1C54CB570F7A15933286BAa1D59B70c0",
+
+    zeroTrustContract: "0xA3A07c5fdd2b7cea1c7aD9d67292206dBf8832D8",
+
+    meshContract: "0x962E121f6067B0dA6F90D07d565ba21004922B9d",
+
+    codContract: "0x6051273DB68F2af68617589f30F8a91f859e5b82",
+
+    stcMarketContract: "0xe9aeeA52781Cb265a83c65d44DB398Ad78571892",
+    stcMarketTokenContract: "0x7A338445C1eAE2f13E294C28050541686187Cd5F",
+
+    userHubContract: "0x5FeeBB15A0cdb30EFd286Dc1210f4aB3D239d1E3"
   }
 ];
 
-let currentChain: ChainName = "opBNB Testnet";
+let currentChain: ChainName = "Sepolia";
 export function setCurrentChain(name: ChainName) {
   currentChain = name;
 }
